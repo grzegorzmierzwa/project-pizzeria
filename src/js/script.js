@@ -230,9 +230,14 @@
       }
 
       /* [DONE] set the contents of thisProduct.priceElem to be the value of variable price */
-      thisProduct.priceElem = price;
+      thisProduct.priceElem.innerHTML = price;
       console.log('price', price);
+      
     }
+
+  }
+
+  class amountWidget{
 
   }
 
