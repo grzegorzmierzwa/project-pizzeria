@@ -258,10 +258,10 @@
             if(!thisProduct.params[paramId]){
               thisProduct.params[paramId] = {
                 label: param.label,
-                option: {},
+                options: {},
               };
             }
-            thisProduct.params[paramId].option[optionId] = option.label;
+            thisProduct.params[paramId].options[optionId] = option.label;
             for (let image of images){
               image.classList.add(classNames.menuProduct.imageVisible);
             }
@@ -396,6 +396,7 @@
       thisCart.dom.wrapper = element;
       thisCart.dom.toggleTrigger = thisCart.dom.wrapper.querySelector(select.cart.toggleTrigger);
       thisCart.dom.productList = thisCart.dom.wrapper.querySelector(select.cart.productList);
+      
       console.log('thisCart.dom', thisCart.dom.toggleTrigger);
     }
 
