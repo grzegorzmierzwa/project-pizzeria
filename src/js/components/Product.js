@@ -1,8 +1,8 @@
 /* eslint-disable linebreak-style */
 
-import {select, classNames, templates} from './settings.js';
-import utils from './utils.js';
-import AmountWidget from './components/AmountWidget.js';
+import {select, classNames, templates} from '../settings.js';
+import utils from '../utils.js';
+import AmountWidget from './AmountWidget.js';
 
 
 class Product{
@@ -223,7 +223,7 @@ class Product{
 
     //   app.cart.add(thisProduct);
 
-    const event = new CustomEvent('add-to-card', {
+    const event = new CustomEvent('add-to-cart', {
       bubbles: true,
       detail: {
         product: thisProduct,
