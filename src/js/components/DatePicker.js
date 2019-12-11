@@ -1,4 +1,5 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable no-undef */
 
 import BaseWidget from './BaseWidget.js';
 import utils from '../utils.js';
@@ -36,8 +37,6 @@ class DatePicker extends BaseWidget{
       onChange: function(selectedDates, dateStr) {
         thisWidget.value = dateStr;
       },
-
-    
     };
 
     flatpickr(thisWidget.dom.input, options);
