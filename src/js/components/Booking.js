@@ -78,7 +78,7 @@ class Booking {
 
     thisBooking.booked = {};
 
-    console.log('thisBooking.booked', thisBooking.booked)
+    // console.log('thisBooking.booked', thisBooking.booked)
 
     for (let item of bookings) {
       thisBooking.makeBooked(item.date, item.hour, item.duration, item.table);
@@ -183,6 +183,7 @@ class Booking {
 
     thisBooking.dom.tables = thisBooking.dom.wrapper.querySelectorAll(select.booking.tables);
 
+    thisBooking.tableReservation();
   }
 
   initWidgets() {
@@ -194,11 +195,29 @@ class Booking {
     thisBooking.datePicker = new DatePicker(thisBooking.dom.datePicker);
     thisBooking.hourPicker = new HourPicker(thisBooking.dom.hourPicker);
 
-    thisBooking.dom.wrapper.addEventListener('updated', function () {
+    thisBooking.dom.wrapper.addEventListener('updated', function (){
       thisBooking.updateDOM();
     });
+
+
+  }
+
+  tableReservation() {
+    const thisBooking = this;
+
+    for (let table of thisBooking.dom.tables){
+      table.addEventListener('click', function(){
+        if (table.classList.contains(classNames.booking.tableBooked)){
+          alert('This table is reserved! Choose a different table.');
+        } else {
+          table.classList.add(classNames.booking.tableBooked);
+        }
+      });
+    }
+
   }
 
 }
 
 export default Booking;
+
