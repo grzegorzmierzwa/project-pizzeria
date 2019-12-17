@@ -240,14 +240,27 @@ class Booking {
     const url = settings.db.url + '/' + settings.db.booking;
 
     const payload = {
-      table: thisBooking.tableClickedIdArray,
+      table: [],
       date: thisBooking.datePicker.value,
       hour: thisBooking.hourPicker.value,
       duration: thisBooking.hoursAmount.value,
       address: thisBooking.dom.address.value,
       phone: thisBooking.dom.phone.value,
       people_amount: thisBooking.peopleAmount.value,
+      starters: [],
     };
+
+    for (let tableNumber of thisBooking.tableClickedIdArray){
+      payload.table.push(JSON.parse(tableNumber));
+      // console.log('table number', JSON.parse(tableNumber));
+    }
+
+    for (let starters of thisBooking.dom.starters){
+      if(starters.checked == true){
+        // console.log('starters', starters.value);
+        payload.starters.push(starters.value);
+      }
+    }
 
     const options = {
       method: 'POST',
@@ -263,6 +276,7 @@ class Booking {
       })
       .then(function(parsedResponse){
         console.log('parsedResponse', parsedResponse);
+        thisBooking.getData();
       });
 
   }
