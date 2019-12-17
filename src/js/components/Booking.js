@@ -207,8 +207,7 @@ class Booking {
     thisBooking.dom.formSubmit.addEventListener('click', function(){
       event.preventDefault();
       thisBooking.sendBooking();
-      thisBooking.getData();
-      thisBooking.initWidgets();
+      
     });
   }
 
@@ -276,11 +275,9 @@ class Booking {
       })
       .then(function(parsedResponse){
         console.log('parsedResponse', parsedResponse);
-        thisBooking.getData();
+        thisBooking.makeBooked(payload.date, payload.hour , payload.table , payload.duration);
       });
-
   }
-
 }
 
 export default Booking;
