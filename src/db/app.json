@@ -256,15 +256,6 @@
     }
   ],
   "booking": [
-    {
-      "id": 6,
-      "date": "2019-12-15",
-      "hour": "18:30",
-      "table": 1,
-      "repeat": false,
-      "duration": 4,
-      "ppl": 3,
-      "starters": []
-    }
+
   ]
 }

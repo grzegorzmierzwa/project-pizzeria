@@ -183,6 +183,11 @@ class Booking {
 
     thisBooking.dom.tables = thisBooking.dom.wrapper.querySelectorAll(select.booking.tables);
 
+    thisBooking.dom.formSubmit = thisBooking.dom.wrapper.querySelector(select.booking.formSubmit);
+    thisBooking.dom.phone = thisBooking.dom.wrapper.querySelector(select.booking.phone);
+    thisBooking.dom.address = thisBooking.dom.wrapper.querySelector(select.booking.address);
+    thisBooking.dom.starters = thisBooking.dom.wrapper.querySelectorAll(select.booking.starters);
+
     thisBooking.tableReservation();
   }
 
@@ -199,11 +204,20 @@ class Booking {
       thisBooking.updateDOM();
     });
 
-
+    thisBooking.dom.formSubmit.addEventListener('click', function(){
+      event.preventDefault();
+      thisBooking.sendBooking();
+      thisBooking.getData();
+      thisBooking.initWidgets();
+    });
   }
+
+  
 
   tableReservation() {
     const thisBooking = this;
+
+    thisBooking.tableClickedIdArray = [];
 
     for (let table of thisBooking.dom.tables){
       table.addEventListener('click', function(){
@@ -211,9 +225,45 @@ class Booking {
           alert('This table is reserved! Choose a different table.');
         } else {
           table.classList.add(classNames.booking.tableBooked);
+          thisBooking.clickedElement = event.target;
+          thisBooking.tableClickedId = thisBooking.clickedElement.getAttribute(settings.booking.tableIdAttribute);
+          thisBooking.tableClickedIdArray.push(thisBooking.tableClickedId);
         }
       });
     }
+
+  }
+
+  sendBooking(){
+    const thisBooking = this;
+
+    const url = settings.db.url + '/' + settings.db.booking;
+
+    const payload = {
+      table: thisBooking.tableClickedIdArray,
+      date: thisBooking.datePicker.value,
+      hour: thisBooking.hourPicker.value,
+      duration: thisBooking.hoursAmount.value,
+      address: thisBooking.dom.address.value,
+      phone: thisBooking.dom.phone.value,
+      people_amount: thisBooking.peopleAmount.value,
+    };
+
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    };
+
+    fetch(url, options)
+      .then(function(response){
+        return response.json();
+      })
+      .then(function(parsedResponse){
+        console.log('parsedResponse', parsedResponse);
+      });
 
   }
 
