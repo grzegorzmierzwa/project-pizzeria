@@ -239,7 +239,7 @@ class Booking {
     const url = settings.db.url + '/' + settings.db.booking;
 
     const payload = {
-      table: [],
+      table: parseInt(thisBooking.tableClickedId),
       date: thisBooking.datePicker.value,
       hour: thisBooking.hourPicker.value,
       duration: thisBooking.hoursAmount.value,
@@ -248,11 +248,6 @@ class Booking {
       people_amount: thisBooking.peopleAmount.value,
       starters: [],
     };
-
-    for (let tableNumber of thisBooking.tableClickedIdArray){
-      payload.table.push(JSON.parse(tableNumber));
-      // console.log('table number', JSON.parse(tableNumber));
-    }
 
     for (let starters of thisBooking.dom.starters){
       if(starters.checked == true){
