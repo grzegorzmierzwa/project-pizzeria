@@ -1,5 +1,6 @@
 import {settings, select, classNames} from './settings.js';
 import Product from './components/Product.js';
+import Main from './components/Main.js';
 import Cart from './components/Cart.js';
 import Booking from './components/Booking.js';
 
@@ -67,6 +68,14 @@ const app = {
     thisApp.booking = new Booking(bookingElem);
   },
 
+  initMainPage: function(){
+    const thisApp = this;
+
+    const mainElem = document.querySelector(select.containerOf.main);
+
+    thisApp.main = new Main(mainElem);
+  },
+
   initMenu: function(){
     const thisApp = this;
     // console.log('thisApp.data:', thisApp.data);
@@ -126,6 +135,7 @@ const app = {
     thisApp.initData();
     thisApp.initCart();
     thisApp.initBooking();
+    thisApp.initMainPage();
   },
 };
 
