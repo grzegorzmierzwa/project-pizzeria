@@ -1,6 +1,6 @@
 /* eslint-disable linebreak-style */
 
-import {select, classNames, templates} from '../settings.js';
+import {select, templates} from '../settings.js';
 import utils from '../utils.js';
 
 class Main {

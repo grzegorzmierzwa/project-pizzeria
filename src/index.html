@@ -17,13 +17,13 @@
     <div class="container">
       <div class="header__wrapper">
         <div class="#logo">
-          <!-- <a href="#main"> -->
+          <!-- <a href="#/main"> -->
             <h1 class="logo__title"><span>Mamma</span>Mia!</h1>
             <h2 class="logo__subtitle">the best homemade Italian food</h2>
           <!-- </a> -->
         </div>
         <div class="main-nav">
-          <a href="#main">Main</a>
+          <a href="#main">Home</a>
           <a href="#order">Order</a>
           <a href="#booking">Booking</a>
         </div>
@@ -77,21 +77,26 @@
   </div>
 
   <script id="temlate-main-page" type="text/x-handlebars-template">
-    <h1>TEST</h1>
-    <section id='links'>
-      <div class="row">
-        <div class="link">
-          <a href="#order">Order Online</a>
+    <div class="main">
+      <div class="main-page-nav">      
+        <div class="order select">
+          <a href="#/order">
+            <h1>Order online</h1>
+            <p>Delicious food delivered to you door</p>
+          </a>
         </div>
-        <div class="link">
-          <a href="#booking">Book A Table</a>
+        <div class="booking">
+          <a href="#/booking">
+            <h1>Book a table</h1>
+            <p>Book a table today</p>
+          </a>
+        </div>
+        <div class="opening-hours">
+          <h1>Opening hours</h1>
+          <p>TUE-SUN, 12PM-12AM</p>
         </div>
       </div>
-      <div class="opening-hours">
-        <h1>TEST</h1>
-      </div>
-        
-    </section>
+    </div>
   </script>
 
   <script id="template-booking-widget" type="text/x-handlebars-template">
