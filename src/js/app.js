@@ -139,5 +139,11 @@ const app = {
   },
 };
 
+window.addEventListener('hashchange', function() {
+  const idFromHash = window.location.hash.replace('#/', '');
+  // console.log('idFromHash', idFromHash);
+  app.activatePage(idFromHash);
+});
+
 
 app.init();
