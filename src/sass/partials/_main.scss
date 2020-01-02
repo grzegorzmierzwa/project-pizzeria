@@ -1,3 +1,13 @@
+#pages {
+  > * {
+    display: none;
+  }
+
+  > .active {
+    display: block;
+  }
+}
+
 .main{
   margin: ($base-size * 3.5) auto;
   padding: ($base-size * 6) ($base-size * 4);
@@ -13,6 +23,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-bottom: 100px;
 
   a {
     text-decoration: none;
@@ -69,10 +80,65 @@
 
     h1 {
       padding-top: 5px;
+      margin-top: 5px;
     }
 
     p {
       opacity: 1;
     }
   }
+}
+
+.main-page-carousel{
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .carousel-img{
+    flex: 0 0 33.333%;
+    height: 150px;
+    
+    img {
+      height: auto;
+      width: 100%;
+      border-radius: 5px;
+      
+    }
+  }
+
+  .carousel-content{
+    > * {
+      display: none;
+    }
+  
+    > .active {
+      display: block;
+    }
+    
+    padding: 10px;
+    flex: 0 0 66.666%;
+    height: 150px;
+  }
+
+  .carousel-mark{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    height: 10px;
+    
+    .mark{
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #ddd;
+      margin: 0 5px;
+    }
+
+    .active{
+      background-color: #000;
+    }
+  }
+
 }

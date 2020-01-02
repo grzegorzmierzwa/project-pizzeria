@@ -13,6 +13,8 @@ export const select = {
     pages: '#pages',
     booking: '.booking-wrapper',
     main: '.main-wrapper',
+    carousel: '.carousel-content',
+    mark: '.carousel-mark',
   },
   all: {
     menuProducts: '#product-list > .product',
@@ -94,6 +96,10 @@ export const classNames = {
   pages: {
     active: 'active',
   },
+  carousel: {
+    content: 'active',
+    mark: 'active',
+  }
 };
 
 export const settings = {
@@ -126,6 +132,9 @@ export const settings = {
     notRepeatParam: 'repeat=false',
     repeatParam: 'repeat_ne=false',
   },
+  carouselTime:{
+    time: 3000,
+  }
 };
 
 export const templates = {
