@@ -24,18 +24,18 @@ class Main {
 
     thisMain.content = thisMain.element.querySelector(select.containerOf.carousel).children;
     thisMain.mark = thisMain.element.querySelector(select.containerOf.mark).children;
-
+    thisMain.carouselQuantity = document.querySelectorAll('.carousel-text');
+   
     thisMain.time = settings.carouselTime.time;
 
     thisMain.repeat = 0;
-
   }
 
   carousel(){
     const thisMain = this;
-
+    
     thisMain.repeat++;
-    if(thisMain.repeat === 3){
+    if(thisMain.repeat === thisMain.carouselQuantity.length){
       thisMain.repeat = 0;
     }
    
