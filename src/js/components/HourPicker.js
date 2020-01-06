@@ -63,8 +63,6 @@ class HourPicker extends BaseWidget{
     
 
     for(let i = thisWidget.open; i < thisWidget.close ; i+=0.5){
-      // console.log('i', i);
-
       if (thisWidget.booked[i]) {
         thisWidget.booked[i].push[1];
       } else {
